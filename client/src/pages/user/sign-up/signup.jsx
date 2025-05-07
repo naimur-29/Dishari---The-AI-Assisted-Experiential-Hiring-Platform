@@ -10,50 +10,50 @@ const Signup = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate=useNavigate();
-  const [role,setRole]=useState('user');
+  const navigate = useNavigate();
+  const [role, setRole] = useState('user');
 
   const handleSignup = async (e) => {
     e.preventDefault();
 
-    if(role==='user'){
-        try {
-            const response = await api.post('/user/signup', {
-              name,
-              email,
-              password,
-            });
-      
-            if (response.status === 201) {
-              alert('User registered successfully!');
-              navigate('/')
-              
-            } else {
-              alert('Signup failed');
-            }
-          } catch (error) {
-            console.error('Signup error:', error);
-            alert(error.response?.data?.message || 'An error occurred during signup');
-          }
-    }else{
-        try {
-            const response = await api.post('/industry/signup', {
-              name,
-              email,
-              password,
-            });
-      
-            if (response.status === 201) {
-              alert('User registered successfully!');
-              navigate('/')
-              
-            } else {
-              alert('Signup failed');
-            }
-          } catch (error) {
-            console.error('Signup error:', error);
-            alert(error.response?.data?.message || 'An error occurred during signup');
-          }
+    if (role === 'user') {
+      try {
+        const response = await api.post('/user/signup', {
+          name,
+          email,
+          password,
+        });
+
+        if (response.status === 201) {
+          alert('User registered successfully!');
+          navigate('/')
+
+        } else {
+          alert('Signup failed');
+        }
+      } catch (error) {
+        console.error('Signup error:', error);
+        alert(error.response?.data?.message || 'An error occurred during signup');
+      }
+    } else {
+      try {
+        const response = await api.post('/industry/signup', {
+          name,
+          email,
+          password,
+        });
+
+        if (response.status === 201) {
+          alert('Registration Successful!');
+          navigate('/')
+
+        } else {
+          alert('Signup failed');
+        }
+      } catch (error) {
+        console.error('Signup error:', error);
+        alert(error.response?.data?.message || 'An error occurred during signup');
+      }
     }
   };
 
@@ -67,7 +67,13 @@ const Signup = () => {
         className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg max-w-md w-full space-y-6"
       >
         <h2 className="text-2xl font-bold text-center text-gray-800">Create Account</h2>
-
+        <div className='w-full gap-3 flex flex-row'>
+          <label>Sign Up as</label>
+          <select value={role} onChange={(e) => setRole(e.target.value)}>
+            <option value='user'>User</option>
+            <option value='industry'>Industry Person</option>
+          </select>
+        </div>
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1">
             Full Name

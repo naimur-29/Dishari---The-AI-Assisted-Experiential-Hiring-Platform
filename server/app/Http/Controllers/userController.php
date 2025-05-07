@@ -57,4 +57,59 @@ class userController extends Controller
             'user' => $user
         ], 201);
     }
+    public function profile($id)
+    {
+        $profile = User::find($id);
+
+        if ($profile) {
+            return response()->json([
+                'status' => 'success',
+                'user' => $profile
+            ], 200);
+        } else {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User not found'
+            ], 404);
+        }
+    }
+    public function updateProfile(Request $request, $id)
+    {
+        // Validate the incoming request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $id,
+            'graduation_year' => 'nullable|integer|min:1900|max:' . date('Y'),
+            'university' => 'nullable|string|max:255',
+            'skills' => 'nullable|string',
+            'linkedin_url' => 'nullable|url'
+        ]);
+
+        // Find the user
+        $user = User::find($id);
+
+        if (!$user) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'User not found'
+            ], 404);
+        }
+
+        // Update fields
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->graduation_year = $request->graduation_year;
+        $user->university = $request->university;
+        $user->skills = $request->skills;
+        $user->linkedin_url = $request->linkedin_url;
+
+        // Save changes
+        $user->save();
+
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Profile updated successfully',
+            'user' => $user
+        ], 201);
+    }
 }

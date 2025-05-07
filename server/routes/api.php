@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/user/login',[userController::class,'login']);
 Route::post('/user/signup',[userController::class,'signup']);
+Route::get('/user/profile/{id}',[userController::class,'profile']);
+Route::put('/user/profile/{id}',[userController::class,'updateProfile']);
+
 Route::post('/admin/login',[adminCOntroller::class,'login']);
 Route::post('/industry-person/login',[industryPersonCOntroller::class,'login']);
-Route::post('/industry/signup',action: [industryPersonCOntroller::class,'signup']);
+Route::post('/industry/signup',[industryPersonCOntroller::class,'signup']);
+Route::get('/industry/profile/{id}',[industryPersonCOntroller::class,'profile']);
+Route::put('/industry/profile/{id}',[industryPersonCOntroller::class,'updateProfile']);

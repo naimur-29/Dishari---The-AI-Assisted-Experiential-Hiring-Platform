@@ -36,13 +36,7 @@ const Login = () => {
         >
             <form className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg max-w-md w-full space-y-6">
                 <h2 className="text-2xl font-bold text-center text-gray-800">Login</h2>
-                <div className='w-full gap-3 flex flex-row'>
-                    <label>Sign Up as</label>
-                    <select value={role} onChange={(e) => setRole(e.target.value)}>
-                        <option value='user'>User</option>
-                        <option value='industry'>Industry Person</option>
-                    </select>
-                </div>
+                
                 <div>
                     <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">
                         Email Address

@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('name')->nullable();
             $table->string('email')->unique();
             $table->string('password');
+            $table->integer('graduation_year')->nullable();
+            $table->string('university')->nullable();
+            $table->text('skills')->nullable();
+            $table->string('linkedin_url')->nullable();
             $table->timestamps();
         });
     }

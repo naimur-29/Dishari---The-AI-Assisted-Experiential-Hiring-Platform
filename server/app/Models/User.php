@@ -18,6 +18,11 @@ class User extends Authenticatable
         'email',
         'name',
         'password',
+        'graduation_year'
+        ,'university',
+        'skills',
+        'linkedin_url'
+
     ];
 
     protected $hidden=['password'];

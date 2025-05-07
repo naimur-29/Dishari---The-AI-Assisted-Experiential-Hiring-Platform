@@ -21,8 +21,10 @@ const Login = () => {
                     password:password
                 });
                 if(res.status===200){
+                    localStorage.setItem('user_id',res.data.user.id);
+                    localStorage.setItem('user_role','user')
                     alert("Log In Sccessfull");
-                    navigate('/user/dashboard')
+                    navigate('/user/dashboard');
                 }
                 else{
                     alert("Log In Failed");
@@ -38,6 +40,8 @@ const Login = () => {
                 });
                 if(res.status===200){
                     alert("Log In Sccessfull");
+                    localStorage.setItem('user_id',res.data.user.id);
+                    localStorage.setItem('user_role','industry')
                     navigate('/company/dashboard')
                 }
             }catch(error){
@@ -97,7 +101,7 @@ const Login = () => {
                 </button>
                 <div className='w-full flex flex-row justify-center items-center gap-2'>
                     <p>Don't have an account??</p>
-                    <button className='bg-green-600 text-white rounded-md p-2 hover:bg-green-700'>Sign Up</button>
+                    <button onClick={()=>navigate('/signup')} className='bg-green-600 text-white rounded-md p-2 hover:bg-green-700'>Sign Up</button>
                 </div>
             </form>
         </div>
