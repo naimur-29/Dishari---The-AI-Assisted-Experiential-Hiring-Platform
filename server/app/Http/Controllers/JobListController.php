@@ -72,5 +72,10 @@ class JobListController extends Controller
         $rank=JobList::find($id)->first()->ranks;
         return response()->json($rank);
     }
+    public function store(){
+        // $job=JobList::create([
+        //     'title'=>
+        // ])
+    }
 
 }

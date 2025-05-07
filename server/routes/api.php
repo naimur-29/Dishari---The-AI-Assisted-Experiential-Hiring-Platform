@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 Route::post('/user/login',[userController::class,'login']);
 Route::post('/user/signup',[userController::class,'signup']);
 Route::get('/user/profile/{id}',[userController::class,'profile']);
+Route::get('/user',[userController::class,'index']);
 Route::put('/user/profile/{id}',[userController::class,'updateProfile']);
 
 Route::post('/admin/login',[adminCOntroller::class,'login']);
@@ -31,6 +32,7 @@ Route::put('/industry/profile/{id}',[industryPersonCOntroller::class,'updateProf
 
 
 Route::get('/job-list',[JobListController::class,'index']);
+Route::get('/job-post',[JobListController::class,'store']);
 Route::get('/job-details/{id}',[JobListController::class,'show']);
 Route::get('/posts/{id}',[JobListController::class,'showBYID']);
 

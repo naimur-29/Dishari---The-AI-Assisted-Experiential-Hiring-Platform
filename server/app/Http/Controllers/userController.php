@@ -34,6 +34,11 @@ class userController extends Controller
             ], 401);
         }
     }
+    public function index()
+    {
+        $users = User::all();
+        return response()->json($users, 200);
+    }
     public function signup(Request $request)
     {
         // Validate input
