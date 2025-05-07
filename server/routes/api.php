@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\adminCOntroller;
 use App\Http\Controllers\industryPersonCOntroller;
+use App\Http\Controllers\JobListController;
 use App\Http\Controllers\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,13 @@ Route::post('/industry-person/login',[industryPersonCOntroller::class,'login']);
 Route::post('/industry/signup',[industryPersonCOntroller::class,'signup']);
 Route::get('/industry/profile/{id}',[industryPersonCOntroller::class,'profile']);
 Route::put('/industry/profile/{id}',[industryPersonCOntroller::class,'updateProfile']);
+
+
+Route::get('/job-list',[JobListController::class,'index']);
+Route::get('/job-details/{id}',[JobListController::class,'show']);
+
+use App\Http\Controllers\JobApplicationController;
+
+Route::post('/apply-job', [JobApplicationController::class, 'store']);
+Route::get('/applied-posts/{id}', [JobApplicationController::class, 'show']);
+Route::put('/apply-job/update/{id}', [JobApplicationController::class, 'update']);

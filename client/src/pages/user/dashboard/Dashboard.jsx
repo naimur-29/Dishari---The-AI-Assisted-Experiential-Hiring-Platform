@@ -4,8 +4,8 @@ const CompanyDashboard = () => {
     return (
         <div>
             <button onClick={()=>navigate('/user/profile')}>Profile</button>
-            <button>Browse Post</button>
-            <button>Appied Post</button>
+            <button onClick={()=>navigate('/user/browse-post')}>Browse Post</button>
+            <button onClick={()=>navigate('/user/applied-post')}>Appied Post</button>
         </div>
     );
 }
