@@ -45,7 +45,7 @@ Gemini Gemma3
 ### Steps
 
 ```bash
-git clone https://github.com/your-username/dishari.git dishari
+git clone https://github.com/naimur-29/Dishari---The-AI-Assisted-Experiential-Hiring-Platform
 cd client
 npm install
 
