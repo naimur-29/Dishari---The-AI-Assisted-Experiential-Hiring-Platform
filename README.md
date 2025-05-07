@@ -33,7 +33,6 @@ Gemini Gemma3:4b (for evaluating submissions)
 
 ### Tools
 Custom Auth
-Cloudinary (for file uploads)
 
 
 ## 🚀 Getting Started
@@ -47,31 +46,12 @@ Gemini Gemma3
 
 ```bash
 git clone https://github.com/your-username/dishari.git dishari
-cd dishari
+cd client
 npm install
 
 ---
 
-### 📌 Part 5: Folder Structure
-
 ```md
-## 🗂 Folder Structure
-
-dishari/
-  ├── src/                   → Main application logic
-  │   ├── components/        → Reusable UI components
-  │   ├── pages/             → Next.js pages (frontend routes)
-  │   ├── api/               → API routes (if using Next.js API)
-  │   ├── hooks/             → Custom React hooks
-  │   ├── utils/             → Utility functions and constants
-  │   ├── models/            → Mongoose schemas
-  │   ├── middleware/        → Auth & role guards
-  ├── public/                → Static files
-  ├── styles/                → Global styles / Tailwind config
-  ├── .env.local             → Environment variables
-  ├── package.json           → Project metadata and scripts
-
-
 ## 🤖 AI Evaluation Flow
 
 Applicant submits a challenge response
