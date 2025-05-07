@@ -32,9 +32,15 @@ Route::put('/industry/profile/{id}',[industryPersonCOntroller::class,'updateProf
 
 Route::get('/job-list',[JobListController::class,'index']);
 Route::get('/job-details/{id}',[JobListController::class,'show']);
+Route::get('/posts/{id}',[JobListController::class,'showBYID']);
+
 
 use App\Http\Controllers\JobApplicationController;
+use App\Models\JobList;
 
 Route::post('/apply-job', [JobApplicationController::class, 'store']);
 Route::get('/applied-posts/{id}', [JobApplicationController::class, 'show']);
 Route::put('/apply-job/update/{id}', [JobApplicationController::class, 'update']);
+Route::put('/apply-job/close/{id}', [JobListController::class, 'closeJob']);
+Route::put('/apply-job/pick/{id}', [JobListController::class, 'pickCandidate']);
+Route::get('/apply-job/ranks/{id}', [JobListController::class, 'getRnak']);

@@ -16,7 +16,7 @@ class JobList extends Model
         'evaluation_criteria',
         'submission_guideline',
         'deadline',
-        'is_hiring'
+        'is_hiring','ranks'
     ];
     public $timestamps=true;
 }
